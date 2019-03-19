@@ -10,15 +10,14 @@ namespace ShoppingCartAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TaxesController : ControllerBase
+    public class TaxesController : Controller
     {
-
+        
         // GET api/taxes
         [HttpGet]
         public double Get()
         {
-            shoppingCart shoppingCart = new shoppingCart("$");
-            calculateTaxes taxes = new calculateTaxes(shoppingCart);
+            calculateTaxes taxes = new calculateTaxes(data.MyShoppingCart);
             return taxes.CalculateTaxes();
         }
 

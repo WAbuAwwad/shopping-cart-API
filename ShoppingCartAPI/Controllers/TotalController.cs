@@ -10,14 +10,14 @@ namespace ShoppingCartAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TotalController : ControllerBase
+    public class TotalController : Controller
     {
+      
         // GET api/total
         [HttpGet]
         public double Get()
         {
-            shoppingCart shoppingCart = new shoppingCart("$");
-            calculateTotal total = new calculateTotal(shoppingCart);
+            calculateTotal total = new calculateTotal(data.MyShoppingCart);
             return total.CalculateTotal();
         }
     }

@@ -10,13 +10,15 @@ namespace ShoppingCartAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PaymentController : ControllerBase
+    public class PaymentController : Controller
     {
+
+        
+        // GET api/payment
         [HttpGet]
         public double Get()
         {
-            shoppingCart shoppingCart = new shoppingCart("$");
-            calculatePayment payment = new calculatePayment(shoppingCart);
+            calculatePayment payment = new calculatePayment(data.MyShoppingCart);
             return payment.payment();
         }
 

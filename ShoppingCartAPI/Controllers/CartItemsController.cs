@@ -10,23 +10,26 @@ namespace ShoppingCartAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CartItemsController : ControllerBase
+    public class CartItemsController : Controller
     {
+        
 
-        shoppingCart shoppingCart = new shoppingCart("$");
+        // Get api/cartItems
         [HttpGet]
         public List<cartItem> Get()
         {
-
-            return shoppingCart.Items;
+            return data.MyShoppingCart.Items;
         }
-
-        // POST api/cartItems
-        [HttpPost]
-        public void Post([FromBody] cartItem item )
+        [HttpGet("{price}/{taxe}")]
+        public void Get(double price, double taxe)
         {
-            shoppingCart.AddItem(item);
+            item myItem = new item(price, taxe, shopping_cart.Type.Most_groceries_and_food_items);
+            cartItem myCartItem = new cartItem(myItem, 1, false, 0.0, 1, 1);
+            data.MyShoppingCart.AddItem(myCartItem);
+          
         }
+
+
 
     }
 }

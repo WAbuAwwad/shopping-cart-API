@@ -9,6 +9,7 @@ namespace shopping_cart
 {
    public class shoppingCart
     {
+        private int id;
         private bool isEmpty;
         private List<cartItem> items ;
         private List<discount> discounts;
@@ -18,7 +19,7 @@ namespace shopping_cart
         public List<cartItem>Items { get{ return items; } }
         public List<discount> Discounts { get{ return discounts; }}
         public string Currency { get { return currency; } }
-        public shoppingCart(string currency)
+        public shoppingCart(string currency )
         {
             this.isEmpty = true;
             this.items = new List<cartItem>();

@@ -10,14 +10,14 @@ namespace ShoppingCartAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DiscountController : ControllerBase
+    public class DiscountController : Controller
     {
+        
         // GET api/discount
         [HttpGet]
         public double Get()
-        {
-            shoppingCart shoppingCart = new shoppingCart("$");
-            calculateDiscount discount = new calculateDiscount(shoppingCart);
+        { 
+            calculateDiscount discount = new calculateDiscount(data.MyShoppingCart);
             return discount.CalculateDiscount(); 
         }
     }
